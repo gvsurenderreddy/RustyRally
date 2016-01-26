@@ -1,0 +1,97 @@
+$font: 'Merriweather',sans-serif;
+$font2: 'Bebas', sans-serif;
+
+$primary: #104966;
+$secondary: #988d89;
+$highlight: #fdcb2f;
+
+$black: #1a1a1a;
+$grey: #e7e7e7;
+$dark-grey: #414042;
+
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 16) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@font-face{ 
+	font-family: 'Bebas';
+	src: url('../fonts/BEBAS___-webfont.eot');
+	src: url('../fonts/BEBAS___-webfont.eot?iefix') format('eot'),
+	     url('../fonts/BEBAS___-webfont.woff') format('woff'),
+	     url('../fonts/BEBAS___-webfont.ttf') format('truetype'),
+	     url('../fonts/BBEBAS___-webfont.svg#webfont') format('svg');
+}
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,900,700);
+
+/* ==========================================================================
+   Global Style
+   ========================================================================== */
+
+
+html, * {
+	margin:0;
+	padding: 0;
+
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	outline: 0;
+}
+
+body {
+	font-family: $font;
+	font-size: 16px;
+	color: $black;
+	background-color: #efefef;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+	&:hover {color: $secondary; text-decoration:underline; @include transition(all .3s);}
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: $font2;
+	letter-spacing: 1px;
+	font-weight: 700;
+	color:$primary;
+	margin-top:1.5em;
+	margin-bottom:1em;
+}
+
+p {
+	font-size:23px;
+	font-size: 20px;
+	line-height: 1.6;
+	margin:1.67em 0;
+}
+
+.btn.btn-primary {
+	background-color: $primary;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	color: white;
+	&:hover {background-color: white; color: $black;}
+}
